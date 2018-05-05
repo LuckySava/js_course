@@ -1,4 +1,4 @@
-var myAge = 12;
+var myAge = 14;
 var age = myAge % 10;
 
 if ((myAge % 100) >=10 && (myAge % 100) <= 14) {
