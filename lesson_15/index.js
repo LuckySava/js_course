@@ -2,9 +2,14 @@
 
 let btn = document.createElement("button");
 btn.innerHTML = "Удалить";
-btn.id = "btn"
+btn.id = "btn1"
 
-document.body.appendChild(btn)
+
+
+document.body.appendChild(btn);
+
+let button = document.querySelector("btn");
+console.log(btn);
 
 // init({className: 'class', attributes: { 'data-name': 'Anatoliy' }, content: 'Some Text'}, 5);
 
@@ -26,4 +31,10 @@ function init(obj, n) {
 	for(let num = 0; num < n; n++) {
 		ul.appendChild(li.cloneNode(true));
 	};
+};
+
+function listen() {
+	btn.addEventListener("click", function(){
+		button.appendChild("ul");
+	});
 };

@@ -1,8 +1,2 @@
-console.log("Савченко Олександр Анатолійович");
+console.log("Савченко Олександр");
 
-// >>>>>>>>>>>>> Another variant <<<<<<<<<<
-
-var name = "Sasha";
-var surName = "Savchenko";
-
-console.log(name + surName);
