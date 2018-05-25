@@ -97,3 +97,28 @@ function matrixDiff(array1, array2){
 
 // ...........................Part 6
 
+// Написать функцию “strangeSearch”, которая принимает один аргумент, массив слов.
+
+// Для каждого слова она должна создать блок, в котором будет текст этого слова и
+// элемент input с типом number, с начальным значением 0. Создать кнопку с id=”go”, и
+// текстом “Search”, по нажатию на которую страница будет перенаправлена на страницу
+// поиска YouTube, где в поиске будет составлена фраза из слов у input-ов которых
+// значение больше чем 0, и они должны стоять в порядке увеличения чисел их input-ов и
+// быть разделенными символом ‘+’.
+
+
+
+function strangeSearch(arrOfWords) {
+	for (let i = 0; i < arrOfWords.length; i++) {
+		let div = document.createElement("div");
+		let input = document.createElement("input");
+		input.setAttribute("type", "nubmer");
+		input.setAttribute("value", 0);
+		
+		div.innerHTML(input);
+	}
+};
+
+let btn = document.createElement("button");
+btn.id ="go";
+
