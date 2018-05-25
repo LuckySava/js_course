@@ -3,6 +3,7 @@
 
 
 const n = 12;
+const speedOftimer = 1000;
 
 let number = document.getElementById("number");
 
@@ -33,7 +34,7 @@ function interval() {
 	inter = setInterval(function(){
 		num++;
 		sec.innerHTML = num;
-	}, 1000)
+	}, speedOftimer)
 };
 
 // Устанавливает события на кнопки СТОП ПАУЗА СТАРТ
@@ -56,3 +57,30 @@ stop.addEventListener("click", function() {
 
 // Добавляем события на кнопки ускорения
 
+let speed1 = document.getElementById("speed1");
+let speed2 = document.getElementById("speed2");
+let speed3 = document.getElementById("speed3");
+
+speed1.addEventListener("click", function(){
+	inter = setInterval(function(){
+		num++
+		sec.innerHTML = num;
+		speed1.setAttribute("disabled", true)
+	})
+}, speedOftimer);
+
+speed2.addEventListener("click", function(){
+	inter = setInterval(function(){
+		num++
+		sec.innerHTML = num;
+		speed2.setAttribute("disabled", true)
+	})
+}, speedOftimer / 2);
+
+speed3.addEventListener("click", function(){
+	inter = setInterval(function(){
+		num++
+		sec.innerHTML = num;
+		speed3.setAttribute("disabled", true)
+	})
+}, speedOftimer / 3);
