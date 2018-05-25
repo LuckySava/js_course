@@ -1,4 +1,4 @@
-// Part 1
+// .............................Part 1
 
 function itsMe(a) {
 	console.log("It's me, " + a);
@@ -7,7 +7,7 @@ function itsMe(a) {
 
 itsMe('mario')
 
-// Part 2
+// ............................Part 2
 
 function compare(a, b){
 
@@ -25,7 +25,7 @@ function compare(a, b){
 
 let i = compare(2, "5");
 
-// Part 3
+// ............................Part 3
 
 
 function row(a, b, c, sign) {
@@ -49,7 +49,7 @@ function row(a, b, c, sign) {
  };
  
  	
-// Part 4
+// .............................Part 4
 
 function fact(n) {
 	if (n == 0) {
@@ -61,32 +61,39 @@ function fact(n) {
 console.log(fact(4));
 
 
-// Part 5
+// ............................Part 5
 
-function matrixDiff(arr1, arr2){
-	for(let i = 0; i < arr1.length; i++){
+function matrixDiff(array1, array2){
+	for(let i = 0; i < array1.length; i++){
+		// console.log(arr1[i]);
+		for(let j = 0; j < array1[i].length; j++){
+			// console.log(array1[i][j]);
+			// console.log(array1.length)
 
-	}
+			if(array1[i].length != array2[i].length) {
+				return NaN;
+
+				// !!! Вот тут, после этого я потерялся, не пойму что делать
+
+				let res1 = array1[i][j];
+				let res2 = array1[i][j];
+
+				let result = [];
+				result = Math.abs(rest1 - rest2);
+			}
+
+
+		}
+	} return
 };
-
-
-
-// Написать функцию “matrixDiff”, которая принимает 2 аргумента, каждый из аргументов
-// это массив массивов чисел.
-
-// Она должна вернуть сумму абсолютных разниц соответствующих элементов этих
-// структур. И должна вернуть NaN, если размеры массивов не совпадают.
-
-// Пример:
 
 // matrixDiff(
 
-// [[2, 3], [4, 5]],
+// [[2,3, 3], [4, 5]],
 
 // [[2, 1], [6, 5]],
 
-// ); // вернет 4, так как |3 - 1| + |4 - 6| = 4
+// );
 
-// matrixDiff([[2, 3], [4, 5]],[[2, 1], [6]]); // вернет NaN
+// ...........................Part 6
 
-// Максимальное количество баллов: 8
