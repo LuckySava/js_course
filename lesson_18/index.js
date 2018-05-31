@@ -19,7 +19,7 @@ if (results < 0) {
     results = results + 365;
   };
 
-btn.addEventListener("click", function {
+btn.addEventListener("click", function() {
   out.innerHTML = "results"
 });
 
