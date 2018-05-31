@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: olive;
+    font-size: 20px;
+    
+}
+.container {
+    width: 980px;
+    margin: 0 auto;
+    text-align: center;
+}
+input {
+    width: 120px;
+    margin-top: 40px;
+}
+button {
+    padding: 15px 22px;
+    border-radius: 5px;
+    font-size: 21px;
+    margin-top: 10px;
+}

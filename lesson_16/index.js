@@ -78,7 +78,7 @@ speed2.addEventListener("click", function(){
 }, speedOftimer / 2);
 
 speed3.addEventListener("click", function(){
-	inter = setInterval(function(){
+	inter1 = setInterval(function(){
 		num++
 		sec.innerHTML = num;
 		speed3.setAttribute("disabled", true)
