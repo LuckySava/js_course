@@ -7,13 +7,17 @@
 //!!!!! Есть трудность в понимаю "как правильно записать и оформить"!!!
 
 // -----------------------------------------------------------------------
+
+// ИТАК! Нам нужно приянть решение, как действовать дальше, если у пользователя есть имя, то мы его "принимаем" и если нет, записывает по умолчанию
+
+
   let isAuth = true;
   let name = "";
 
   function checkAuth() {
     let promise = new Promise (function(resolve, reject) {
         setTimeout(function(){
-            (!isAuth) ? resolve() : reject()
+            (!isAuth) ? resolve(isAuth) : reject(isAuth)
         }, 2000)
       });
       return promise;
@@ -24,6 +28,7 @@ checkAuth
         function(user) { 
             console.log(user.name);
         }),
+        // Не совсем уверен можно ли так делать, вместо catch, Т.е. передавать вторую функцию.
         function(){
             console.log("name: + 'Max'")
         };
