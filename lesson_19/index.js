@@ -25,10 +25,9 @@
 
 checkAuth
         .then(
-        function(user) { 
+        function(success) { 
             console.log(user.name);
-        }),
-        // Не совсем уверен можно ли так делать, вместо catch, Т.е. передавать вторую функцию.
-        function(){
+        })
+        .catch(function(error){
             console.log("name: + 'Max'")
-        };
+        });
