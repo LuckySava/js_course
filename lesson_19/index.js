@@ -12,7 +12,7 @@
 
 
   let isAuth = true;
-  let name = "";
+//   let name = "";
 
   function checkAuth() {
     let promise = new Promise (function(resolve, reject) {
@@ -26,7 +26,7 @@
 checkAuth
         .then(
         function(success) { 
-            console.log(user.name);
+            console.log(isAuth);
         })
         .catch(function(error){
             console.log("name: + 'Max'")
