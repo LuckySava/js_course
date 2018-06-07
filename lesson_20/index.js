@@ -1,8 +1,8 @@
 // Создаем класс конструктор
 
-function Human(name, age) {
-    this.name = name;
-    this.age = age;
+function Human(data) {
+    this.name = data.name;
+    this.age = data.age;
 };
 
 // Добавляем "глобальный" метод классу конструктору
@@ -13,9 +13,9 @@ Human.prototype.sayHello = function() {
 
 // Создаем класс "потомок"
 
-function AlevelStudent(name, age, marks) {
+function AlevelStudent(data) {
 	Human.apply(this, arguments);
-	this.marks = marks;
+	this.marks = data.marks;
 
 }
 
@@ -28,12 +28,15 @@ AlevelStudent.prototype.constructor = AlevelStudent;
 // Добавляем метод в "потомок"
 
 
-AlevelStudent.prototype.averageMark = function(marks) {
+AlevelStudent.prototype.averageMark = function() {
 	let sum = 0;
 	let result = 0;
-	for(let i = 0; i < marks.length; i++) {
-		sum += marks[i];
+	for(let i = 0; i < this.marks.length; i++) {
+		sum += this.marks[i];
 	}
-	return result = sum / marks.length;
+	return result = sum / this.marks.length;
 };
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>          New Syntax        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
