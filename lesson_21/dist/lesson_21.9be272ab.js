@@ -98,9 +98,131 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({2:[function(require,module,exports) {
-console.log("Привет ребята!");
-},{}],7:[function(require,module,exports) {
+})({16:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var LocationApi = exports.LocationApi = function () {
+    function LocationApi() {
+        _classCallCheck(this, LocationApi);
+    }
+
+    _createClass(LocationApi, [{
+        key: "getMyIp",
+
+        // constructor() {
+        // }
+        value: function getMyIp() {
+            fetch("https://api.ipify.org?format=json").then(function (res) {
+                if (res.status >= 200 && res.status <= 300) {
+                    return res.json();
+                }
+                return Promise.reject(res.status);
+            }).catch(function (error) {
+                return console.log("We have some problem with it");
+            });
+        }
+    }, {
+        key: "getMyLocation",
+        value: function getMyLocation(ip) {
+            fetch("https://freegeoip.net/json/{ip}").then(function (res) {
+                if (res.status >= 200 && res.status <= 300) {
+                    return res.json();
+                }
+                return Promise.reject(res.status);
+            }).catch(function (error) {
+                return console.log("We have some problem with it");
+            });
+        }
+    }]);
+
+    return LocationApi;
+}();
+
+;
+},{}],17:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Dom = exports.Dom = function () {
+    function Dom() {
+        _classCallCheck(this, Dom);
+
+        var firstField = document.querySelector("#field1"),
+            secondField = document.querySelector("#field2"),
+            thirdField = document.querySelector("#field3"),
+            forthField = document.querySelector("#field4"),
+            preload = document.querySelector("#preload");
+    }
+
+    _createClass(Dom, [{
+        key: "showPreloader",
+        value: function showPreloader() {
+            preload = document.querySelector("preload").classList.add("preloading");
+        }
+    }, {
+        key: "hidePreloader",
+        value: function hidePreloader() {
+            preload = document.querySelector("preload").classList.remove("preloading");
+        }
+    }, {
+        key: "setCoordinates",
+        value: function setCoordinates(coordinate) {
+            firstField.value = coordinate.country_name;
+            secondField.value = coordinate.city;
+            thirdField.value = coordinate.longitude;
+            forthField.value = coordinate.latitude;
+        }
+    }]);
+
+    return Dom;
+}();
+},{}],2:[function(require,module,exports) {
+"use strict";
+
+var _location_api = require("./location_api.js");
+
+var _location_api2 = _interopRequireDefault(_location_api);
+
+var _dom = require("./dom.js");
+
+var _dom2 = _interopRequireDefault(_dom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log("Проверка связи");
+
+// >>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<
+
+var myLocation = new _location_api2.default(),
+    myResult = new _dom2.default(),
+    btn = document.getElementById("btn");
+
+btn.addEventListener("click", function () {
+    myResult.showPreloader();
+    myLocation.getMyIp().then(function (res) {
+        return myLocation.getmyLocation(res.ip);
+    }).thin(function (res) {
+        return myResult.setCoordinates(res);
+    }).then(function (res) {
+        return myResult.hidePreloader();
+    });
+});
+},{"./location_api.js":16,"./dom.js":17}],23:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -270,5 +392,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[7,2], null)
+},{}]},{},[23,2], null)
 //# sourceMappingURL=/lesson_21.9be272ab.map
