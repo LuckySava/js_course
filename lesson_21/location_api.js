@@ -9,8 +9,10 @@ export default class LocationApi {
             // }
             if(res.status === 200) {
                 return res.json();
+            } else {
+                throw new Error('error ip')
             }
-            return Promise.reject(res.status)
+            
         })
         .catch(error => console.log("We have some problem with it"));
     }
@@ -22,8 +24,10 @@ export default class LocationApi {
                 // }
                 if(res.status === 200) {
                     return res.json();
+                } else {
+                    Promise.reject(res.status)
                 }
-                return Promise.reject(res.status)
+
             })
             .catch(error => console.log("We have some problem with it"));
     }

@@ -17,6 +17,7 @@ input {
     color: #fff;
     font-size: 20px;
     border-radius: 100px;
+    outline: none;
 }
 button {
     margin-top: 25px;
@@ -25,6 +26,16 @@ button {
     border-radius: 29px;
     outline: none;
     border: none;
+    cursor: pointer;
+    background: #1B4765;
+    color: #fff;
+    transition: .3s;
+}
+button:hover {
+    opacity: .8;
+}
+h1 {
+    color: rgb(32, 53, 99);
 }
 .preloading {
     display: none;

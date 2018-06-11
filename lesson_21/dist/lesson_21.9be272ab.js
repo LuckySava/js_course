@@ -98,7 +98,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({16:[function(require,module,exports) {
+})({6:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -126,8 +126,9 @@ var LocationApi = function () {
                 // }
                 if (res.status === 200) {
                     return res.json();
+                } else {
+                    throw new Error('error ip');
                 }
-                return Promise.reject(res.status);
             }).catch(function (error) {
                 return console.log("We have some problem with it");
             });
@@ -141,8 +142,9 @@ var LocationApi = function () {
                 // }
                 if (res.status === 200) {
                     return res.json();
+                } else {
+                    Promise.reject(res.status);
                 }
-                return Promise.reject(res.status);
             }).catch(function (error) {
                 return console.log("We have some problem with it");
             });
@@ -153,7 +155,7 @@ var LocationApi = function () {
 }();
 
 exports.default = LocationApi;
-},{}],17:[function(require,module,exports) {
+},{}],7:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -168,30 +170,31 @@ var Dom = function () {
     function Dom() {
         _classCallCheck(this, Dom);
 
-        var firstField = document.querySelector("#field1"),
-            secondField = document.querySelector("#field2"),
-            thirdField = document.querySelector("#field3"),
-            forthField = document.querySelector("#field4"),
-            preload = document.querySelector("#preload");
+        this.firstField = document.getElementById("field1"), this.secondField = document.getElementById("field2"), this.thirdField = document.getElementById("field3"), this.forthField = document.getElementById("field4"), this.preload = document.getElementById("preload");
     }
 
     _createClass(Dom, [{
         key: "showPreloader",
         value: function showPreloader() {
-            preload.classList.add("preloading");
+
+            this.preload.classList.add("preloading");
         }
     }, {
         key: "hidePreloader",
         value: function hidePreloader() {
-            preload.classList.remove("preloading");
+            var _this = this;
+
+            setTimeout(function () {
+                _this.preload.classList.remove("preloading");
+            }, 1000);
         }
     }, {
         key: "setCoordinates",
         value: function setCoordinates(coordinate) {
-            firstField.value = coordinate.country_name;
-            secondField.value = coordinate.city;
-            thirdField.value = coordinate.longitude;
-            forthField.value = coordinate.latitude;
+            this.firstField.value = coordinate.country_name;
+            this.secondField.value = coordinate.city;
+            this.thirdField.value = coordinate.longitude;
+            this.forthField.value = coordinate.latitude;
         }
     }]);
 
@@ -199,7 +202,7 @@ var Dom = function () {
 }();
 
 exports.default = Dom;
-},{}],2:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 "use strict";
 
 var _location_api = require("./location_api.js");
@@ -216,6 +219,8 @@ console.log("Проверка связи");
 
 // >>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<
 
+// ПРОВЕРИЛ уже десяток раз, не могу найти где именно ошибка, исходя из подсказки консоли.
+
 var myLocation = new _location_api2.default(),
     myResult = new _dom2.default(),
     btn = document.getElementById("btn");
@@ -223,14 +228,14 @@ var myLocation = new _location_api2.default(),
 btn.addEventListener("click", function () {
     myResult.showPreloader();
     myLocation.getMyIp().then(function (res) {
-        return myLocation.getmyLocation(res.ip);
-    }).thin(function (res) {
+        return myLocation.getMyLocation(res.ip);
+    }).then(function (res) {
         return myResult.setCoordinates(res);
     }).then(function (res) {
         return myResult.hidePreloader();
     });
 });
-},{"./location_api.js":16,"./dom.js":17}],28:[function(require,module,exports) {
+},{"./location_api.js":6,"./dom.js":7}],14:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -259,7 +264,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49154' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65424' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -400,5 +405,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[28,2], null)
+},{}]},{},[14,3], null)
 //# sourceMappingURL=/lesson_21.9be272ab.map

@@ -1,21 +1,26 @@
 export default class Dom {
     constructor() {
-        let firstField = document.querySelector("#field1"),
-            secondField = document.querySelector("#field2"),
-            thirdField = document.querySelector("#field3"),
-            forthField = document.querySelector("#field4"),
-            preload = document.querySelector("#preload");
+        this.firstField = document.getElementById("field1"),
+            this.secondField = document.getElementById("field2"),
+            this.thirdField = document.getElementById("field3"),
+            this.forthField = document.getElementById("field4"),
+            this.preload = document.getElementById("preload");
     }
     showPreloader() {
-        preload.classList.add("preloading");
+
+        this.preload.classList.add("preloading");
     }
     hidePreloader() {
-        preload.classList.remove("preloading");
+
+        setTimeout(() => {
+            this.preload.classList.remove("preloading");
+        }, 1000)
+
     }
     setCoordinates(coordinate) {
-            firstField.value = coordinate.country_name;
-            secondField.value = coordinate.city;
-            thirdField.value = coordinate.longitude;
-            forthField.value = coordinate.latitude;
+            this.firstField.value = coordinate.country_name;
+            this.secondField.value = coordinate.city;
+            this.thirdField.value = coordinate.longitude;
+            this.forthField.value = coordinate.latitude;
     }
 }
