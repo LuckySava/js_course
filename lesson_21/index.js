@@ -7,8 +7,8 @@ console.log("Проверка связи");
 
 // >>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<
 
-let myLocation = new LocationApi,
-    myResult = new Dom,
+let myLocation = new LocationApi(),
+    myResult = new Dom(),
     btn = document.getElementById("btn");
 
 

@@ -109,7 +109,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var LocationApi = exports.LocationApi = function () {
+var LocationApi = function () {
     function LocationApi() {
         _classCallCheck(this, LocationApi);
     }
@@ -121,7 +121,10 @@ var LocationApi = exports.LocationApi = function () {
         // }
         value: function getMyIp() {
             fetch("https://api.ipify.org?format=json").then(function (res) {
-                if (res.status >= 200 && res.status <= 300) {
+                // if(res.status >= 200 && res.status <= 300) {
+                //     return res.json();
+                // }
+                if (res.status === 200) {
                     return res.json();
                 }
                 return Promise.reject(res.status);
@@ -133,7 +136,10 @@ var LocationApi = exports.LocationApi = function () {
         key: "getMyLocation",
         value: function getMyLocation(ip) {
             fetch("https://freegeoip.net/json/{ip}").then(function (res) {
-                if (res.status >= 200 && res.status <= 300) {
+                // if(res.status >= 200 && res.status <= 300) {
+                //     return res.json();
+                // }
+                if (res.status === 200) {
                     return res.json();
                 }
                 return Promise.reject(res.status);
@@ -146,7 +152,7 @@ var LocationApi = exports.LocationApi = function () {
     return LocationApi;
 }();
 
-;
+exports.default = LocationApi;
 },{}],17:[function(require,module,exports) {
 "use strict";
 
@@ -158,7 +164,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Dom = exports.Dom = function () {
+var Dom = function () {
     function Dom() {
         _classCallCheck(this, Dom);
 
@@ -172,12 +178,12 @@ var Dom = exports.Dom = function () {
     _createClass(Dom, [{
         key: "showPreloader",
         value: function showPreloader() {
-            preload = document.querySelector("preload").classList.add("preloading");
+            preload.classList.add("preloading");
         }
     }, {
         key: "hidePreloader",
         value: function hidePreloader() {
-            preload = document.querySelector("preload").classList.remove("preloading");
+            preload.classList.remove("preloading");
         }
     }, {
         key: "setCoordinates",
@@ -191,6 +197,8 @@ var Dom = exports.Dom = function () {
 
     return Dom;
 }();
+
+exports.default = Dom;
 },{}],2:[function(require,module,exports) {
 "use strict";
 
@@ -222,7 +230,7 @@ btn.addEventListener("click", function () {
         return myResult.hidePreloader();
     });
 });
-},{"./location_api.js":16,"./dom.js":17}],23:[function(require,module,exports) {
+},{"./location_api.js":16,"./dom.js":17}],28:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -392,5 +400,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[23,2], null)
+},{}]},{},[28,2], null)
 //# sourceMappingURL=/lesson_21.9be272ab.map
