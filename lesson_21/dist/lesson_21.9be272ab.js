@@ -235,7 +235,7 @@ btn.addEventListener("click", function () {
         return myResult.hidePreloader();
     });
 });
-},{"./location_api.js":6,"./dom.js":7}],14:[function(require,module,exports) {
+},{"./location_api.js":6,"./dom.js":7}],11:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -264,7 +264,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65424' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50700' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -405,5 +405,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[14,3], null)
+},{}]},{},[11,3], null)
 //# sourceMappingURL=/lesson_21.9be272ab.map

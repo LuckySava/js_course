@@ -98,7 +98,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({9:[function(require,module,exports) {
+})({10:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -159,13 +159,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":9}],2:[function(require,module,exports) {
+},{"./bundle-url":10}],2:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./img\\164154003-city-wallpapers.jpg":5,"_css_loader":8}],10:[function(require,module,exports) {
+},{"./img\\164154003-city-wallpapers.jpg":5,"_css_loader":8}],11:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -194,7 +194,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65424' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50700' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -335,7 +335,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}],13:[function(require,module,exports) {
+},{}],12:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -416,6 +416,6 @@ LazyPromise.prototype.catch = function (onError) {
   if (this.promise === null) this.promise = new Promise(this.executor);
   return this.promise.catch(onError);
 };
-},{"./bundle-url":9}],0:[function(require,module,exports) {
-var b=require(13);b.load([["164154003-city-wallpapers.f270c813.jpg",5]]);
-},{}]},{},[10,0], null)
+},{"./bundle-url":10}],0:[function(require,module,exports) {
+var b=require(12);b.load([["164154003-city-wallpapers.f270c813.jpg",5]]);
+},{}]},{},[11,0], null)

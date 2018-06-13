@@ -14,7 +14,7 @@ export default class Dom {
 
         setTimeout(() => {
             this.preload.classList.remove("preloading");
-        }, 1000)
+        }, 1000);
 
     }
     setCoordinates(coordinate) {
