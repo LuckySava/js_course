@@ -41,5 +41,9 @@ h1 {
     display: none;
     text-align: center;
     margin-top: 15px;
-
+}
+h2 {
+    color: #50A38D;
+    font-size: 38px;
+    font-weight: bold;
 }

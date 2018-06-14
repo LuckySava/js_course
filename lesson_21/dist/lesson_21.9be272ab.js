@@ -99,143 +99,206 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({6:[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// export default class LocationApi {
+//     // constructor() {
+//     // }
+//     getMyIp() {
+//         fetch("https://api.ipify.org?format=json")
+//         .then(res => {
+//             // if(res.status >= 200 && res.status <= 300) {
+//             //     return res.json();
+//             // }
+//             if(res.status === 200) {
+//                 return res.json();
+//             } else {
+//                 throw new Error('error ip')
+//             }
+
+//         })
+//         .catch(error => console.log("We have some problem with it"));
+//     }
+//     getMyLocation(ip) {
+//         fetch("https://freegeoip.net/json/{ip}")
+//             .then(res => {
+//                 // if(res.status >= 200 && res.status <= 300) {
+//                 //     return res.json();
+//                 // }
+//                 if(res.status === 200) {
+//                     return res.json();
+//                 } else {
+//                     return Promise.reject(res.status)
+//                 }
+
+//             })
+//             .catch(error => console.log("We have some problem with it"));
+//     }
+
+// }
+
 var LocationApi = function () {
-    function LocationApi() {
-        _classCallCheck(this, LocationApi);
+  function LocationApi() {
+    _classCallCheck(this, LocationApi);
+  }
+
+  _createClass(LocationApi, [{
+    key: 'getMyIp',
+    value: function getMyIp() {
+      return fetch('https://api.ipify.org?format=json', {
+        method: 'GET'
+      }).then(function (res) {
+        if (res.status === 200) {
+          return res.json();
+        }
+
+        return Promise.reject(res.status);
+      });
     }
-
-    _createClass(LocationApi, [{
-        key: "getMyIp",
-
-        // constructor() {
-        // }
-        value: function getMyIp() {
-            fetch("https://api.ipify.org?format=json").then(function (res) {
-                // if(res.status >= 200 && res.status <= 300) {
-                //     return res.json();
-                // }
-                if (res.status === 200) {
-                    return res.json();
-                } else {
-                    throw new Error('error ip');
-                }
-            }).catch(function (error) {
-                return console.log("We have some problem with it");
-            });
+  }, {
+    key: 'getMyLocation',
+    value: function getMyLocation(ip) {
+      return fetch('https://freegeoip.net/json/' + ip, {
+        method: 'GET'
+      }).then(function (res) {
+        if (res.status === 200) {
+          return res.json();
         }
-    }, {
-        key: "getMyLocation",
-        value: function getMyLocation(ip) {
-            fetch("https://freegeoip.net/json/{ip}").then(function (res) {
-                // if(res.status >= 200 && res.status <= 300) {
-                //     return res.json();
-                // }
-                if (res.status === 200) {
-                    return res.json();
-                } else {
-                    Promise.reject(res.status);
-                }
-            }).catch(function (error) {
-                return console.log("We have some problem with it");
-            });
-        }
-    }]);
 
-    return LocationApi;
+        return Promise.reject(res.status);
+      });
+    }
+  }]);
+
+  return LocationApi;
 }();
 
 exports.default = LocationApi;
 },{}],7:[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// export default class Dom {
+//     constructor() {
+//         this.firstField = document.getElementById("field1"),
+//             this.secondField = document.getElementById("field2"),
+//             this.thirdField = document.getElementById("field3"),
+//             this.forthField = document.getElementById("field4"),
+//             this.preload = document.getElementById("preload");
+//     }
+//     showPreloader() {
+
+//         this.preload.classList.add("preloading");
+//     }
+//     hidePreloader() {
+
+//         setTimeout(() => {
+//             this.preload.classList.remove("preloading");
+//         }, 1000);
+
+//     }
+//     setCoordinates(coordinate) {
+//             this.firstField.value = coordinate.country_name;
+//             this.secondField.value = coordinate.city;
+//             this.thirdField.value = coordinate.longitude;
+//             this.forthField.value = coordinate.latitude;
+//     }
+// }
+
 var Dom = function () {
-    function Dom() {
-        _classCallCheck(this, Dom);
+  function Dom() {
+    _classCallCheck(this, Dom);
 
-        this.firstField = document.getElementById("field1"), this.secondField = document.getElementById("field2"), this.thirdField = document.getElementById("field3"), this.forthField = document.getElementById("field4"), this.preload = document.getElementById("preload");
+    this.preloader = document.getElementById('preloader');
+    this.location = document.getElementById('location');
+  }
+
+  _createClass(Dom, [{
+    key: 'showPreloader',
+    value: function showPreloader() {
+      this.preloader.style.opacity = 1;
+      //   this.location.style.opacity = 0;
     }
+  }, {
+    key: 'hidePreloader',
+    value: function hidePreloader() {
+      this.preloader.style.opacity = 0;
+      this.location.style.opacity = 1;
+    }
+  }, {
+    key: 'setCoordinates',
+    value: function setCoordinates(coordinates) {
+      this.location.innerHTML = coordinates;
+    }
+  }]);
 
-    _createClass(Dom, [{
-        key: "showPreloader",
-        value: function showPreloader() {
-
-            this.preload.classList.add("preloading");
-        }
-    }, {
-        key: "hidePreloader",
-        value: function hidePreloader() {
-            var _this = this;
-
-            setTimeout(function () {
-                _this.preload.classList.remove("preloading");
-            }, 1000);
-        }
-    }, {
-        key: "setCoordinates",
-        value: function setCoordinates(coordinate) {
-            this.firstField.value = coordinate.country_name;
-            this.secondField.value = coordinate.city;
-            this.thirdField.value = coordinate.longitude;
-            this.forthField.value = coordinate.latitude;
-        }
-    }]);
-
-    return Dom;
+  return Dom;
 }();
 
 exports.default = Dom;
 },{}],3:[function(require,module,exports) {
-"use strict";
+'use strict';
 
-var _location_api = require("./location_api.js");
+var _location_api = require('./location_api');
 
 var _location_api2 = _interopRequireDefault(_location_api);
 
-var _dom = require("./dom.js");
+var _dom = require('./dom');
 
 var _dom2 = _interopRequireDefault(_dom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log("Проверка связи");
+// import LocationApi from "./location_api.js";
+// import Dom from "./dom.js"
 
-// >>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<
+// console.log("Проверка связи");
 
-// ПРОВЕРИЛ уже десяток раз, не могу найти где именно ошибка, исходя из подсказки консоли.
 
-var myLocation = new _location_api2.default(),
-    myResult = new _dom2.default(),
-    btn = document.getElementById("btn");
+// // >>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<
 
-btn.addEventListener("click", function () {
-    myResult.showPreloader();
-    myLocation.getMyIp().then(function (res) {
-        return myLocation.getMyLocation(res.ip);
-    }).then(function (res) {
-        return myResult.setCoordinates(res);
-    }).then(function (res) {
-        return myResult.hidePreloader();
-    });
+// let myLocation = new LocationApi(),
+//     myResult = new Dom(),
+//     btn = document.getElementById("btn");
+
+
+// btn.addEventListener("click", () => {
+//     myResult.showPreloader();
+//     myLocation.getMyIp()
+//         .then(res => myLocation.getMyLocation(res.ip))
+//         .then(res => myResult.setCoordinates(res))
+//         .then(res => myResult.hidePreloader())
+// });
+
+
+var locationApi = new _location_api2.default();
+var dom = new _dom2.default();
+
+dom.showPreloader();
+locationApi.getMyIp().then(function (res) {
+  return locationApi.getMyLocation(res.ip);
+}).then(function (res) {
+  dom.hidePreloader();
+  dom.setCoordinates(JSON.stringify(res));
+}).catch(function (eror) {
+  console.log(eror);
 });
-},{"./location_api.js":6,"./dom.js":7}],11:[function(require,module,exports) {
+},{"./location_api":6,"./dom":7}],22:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -264,7 +327,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50700' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57341' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -405,5 +468,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[11,3], null)
+},{}]},{},[22,3], null)
 //# sourceMappingURL=/lesson_21.9be272ab.map
