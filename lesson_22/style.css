@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #324A65 url(img/164154003-city-wallpapers.jpg);
+    width: 1200px;
+}
+.wrapper {
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+input {
+    margin-right: 10px;
+    background: #2F7DB1;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 100px;
+    outline: none;
+}
+button {
+    margin-top: 25px;
+    font-size: 24px;
+    padding: 8px 14px;
+    border-radius: 29px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: #1B4765;
+    color: #fff;
+    transition: .3s;
+}
+button:hover {
+    opacity: .8;
+}
+h1 {
+    color: rgb(32, 53, 99);
+}
+.preloading {
+    display: none;
+    text-align: center;
+    margin-top: 15px;
+}
+h2 {
+    color: #DEC000;
+    font-size: 38px;
+    font-weight: bold;
+}
+#preloader {
+    font-size: 25px;
+    color: red;
+    margin-top: 10px;
+}
+.container {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(191, 222, 183, 0.88);
+    margin: 0 auto;
+}
+.city {
+    font-size: 29px;
+    color: #C95E67;
+    margin-bottom: 10px;
+}
+.weather_icon {
+    margin-bottom: 10px;
+}
+.weather_title {
+    font-size: 15px;
+    color: #F35D66;
+}
+.temper {
+    font-size: 65px;
+    color: #C95E67;
+    font-weight: 600;
+}
+.container2 {
+    width: 500px;
+    display: flex;
+    background-color: rgba(191, 222, 183, 0.88);
+    margin: 15px auto 0;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.text {
+    font-size: 16px;
+    color: #0D2D38;
+}
