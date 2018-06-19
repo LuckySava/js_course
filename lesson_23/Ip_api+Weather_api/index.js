@@ -27,6 +27,6 @@
     })
  })
 
- weather.getWeather()
+//  weather.getWeather()
 
 
