@@ -4,7 +4,7 @@ let inputEmail = document.getElementById("email"),
     btn = document.getElementById("search"),
     out = document.getElementById("out"),
     regEmail = /^[A-Za-z\d\-#&\?\\_"\(\)\.\s\;\:\]\[\{\}]+@\w+.[\w|\d]+$/,
-    regEmailTextArea = /[A-Za-z\d\-#&\?\\_"\(\)\.\s\;\:\]\[\{\}]+@\w+.[\w|\d]+/gm,
+    regEmailTextArea = /^[A-Za-z\d\-#&\?\\_"\(\)\.\s\;\:\]\[\{\}]+@\w+.[\w|\d]+$/,
     regPhone = /^\+38(\(0\d{2}\)|0\d{2})\d{3}-?\d{2}-?\d\d$/;
 
 
@@ -27,7 +27,21 @@ inputPhone.addEventListener("focus", function() {
 })
 
 btn.addEventListener("click", function() {
-    // условие
 
-    
+    // >>>>>>>>>>>Только одна почта без текста!!!!!<<<<<<<<<<<<<<
+
+
+    // условие
+    // проверка
+    // создание div с классом email_out
+
+    for(let i = 0; i < regEmailTextArea.exec(textArea.value).length; i++) {
+        let divValue = (regEmailTextArea.exec(textArea.value)[i]),
+                    // console.log(regEmailTextArea.exec(textArea.value)[i])
+            div = document.createElement("div").classList.add("email_out");
+
+            
+    // Добавить текст почты в div
+
+    }
 })

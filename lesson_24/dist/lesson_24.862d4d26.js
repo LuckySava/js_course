@@ -105,7 +105,7 @@ var inputEmail = document.getElementById("email"),
     btn = document.getElementById("search"),
     out = document.getElementById("out"),
     regEmail = /^[A-Za-z\d\-#&\?\\_"\(\)\.\s\;\:\]\[\{\}]+@\w+.[\w|\d]+$/,
-    regEmailTextArea = /[A-Za-z\d\-#&\?\\_"\(\)\.\s\;\:\]\[\{\}]+@\w+.[\w|\d]+/gm,
+    regEmailTextArea = /^[A-Za-z\d\-#&\?\\_"\(\)\.\s\;\:\]\[\{\}]+@\w+.[\w|\d]+$/,
     regPhone = /^\+38(\(0\d{2}\)|0\d{2})\d{3}-?\d{2}-?\d\d$/;
 
 inputEmail.addEventListener("focus", function () {
@@ -127,11 +127,24 @@ inputPhone.addEventListener("focus", function () {
 });
 
 btn.addEventListener("click", function () {
+
+    // >>>>>>>>>>>Только одна почта без текста!!!!!<<<<<<<<<<<<<<
+
+
     // условие
+    // проверка
+    // создание div с классом email_out
 
+    for (var i = 0; i < regEmailTextArea.exec(textArea.value).length; i++) {
+        var divValue = regEmailTextArea.exec(textArea.value)[i],
 
+        // console.log(regEmailTextArea.exec(textArea.value)[i])
+        div = document.createElement("div").classList.add("email_out");
+
+        // Добавить текст почты в div
+    }
 });
-},{}],55:[function(require,module,exports) {
+},{}],15:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -160,7 +173,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56758' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58650' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -301,5 +314,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[55,2], null)
+},{}]},{},[15,2], null)
 //# sourceMappingURL=/lesson_24.862d4d26.map
