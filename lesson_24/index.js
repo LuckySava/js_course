@@ -36,9 +36,13 @@ btn.addEventListener("click", function() {
     // создание div с классом email_out
 
     for(let i = 0; i < regEmailTextArea.exec(textArea.value).length; i++) {
+
         let divValue = (regEmailTextArea.exec(textArea.value)[i]),
-                    // console.log(regEmailTextArea.exec(textArea.value)[i])
             div = document.createElement("div").classList.add("email_out");
+
+            div.innerHTML = divValue;
+            // console.log(div)
+        
 
             
     // Добавить текст почты в div
