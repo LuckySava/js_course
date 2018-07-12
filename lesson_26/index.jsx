@@ -7,7 +7,7 @@ const User = (props) => {
      
       <h1>{props.name}</h1>
       <p><a href="tel:{props.tel}">{props.tel}</a></p>  {/* почему не работает в href фигурные скобки */}
-      <a href="mailto:{props.mail}">{props.mail}</a>    {/* почему не работает в href фигурные скобки */}
+      <a href="mailto: props.mail">{props.mail}</a>    {/* почему не работает в href фигурные скобки */}
       <p>{props.work}</p>
       <img src={props.photo} alt=""/>
       
