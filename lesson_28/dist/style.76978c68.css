@@ -1,0 +1,99 @@
+body{
+    background: #f5f5f5;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.header {
+    /* outline: 1px solid darkolivegreen; */
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 100px;
+    position: relative;
+}
+h1 {
+    text-align: center;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.15);
+}
+.main_input {
+    outline: none;
+    border: none;
+    /* text-align: center; */
+    width: 400px;
+    height: 30px;
+    position: absolute;
+    transform: translateX(50%);
+    left: -80px;
+    top: 130px;
+    padding: 16px 16px 16px 60px;
+    border-bottom: 1px solid #e4e4e4;
+    background: #fff;
+    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+    font-size: 24px;
+    color: #4D4D4D;
+
+}
+.newInput {
+    text-align: center;
+    width: 400px;
+    min-height: 30px;
+    border-bottom: 1px solid #e4e4e4;
+    background: #fff;
+    margin: 0 auto;
+    padding: 16px 16px 16px 60px;
+    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+    font-size: 24px;
+    margin-left: 160px;
+    color: #4D4D4D;
+}
+.checkAllitem {
+    position: absolute;
+    top: 153px;
+    left: 175px;
+}
+.markText {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(192, 177, 177, 0.418);
+    transition: .1s;
+}
+.markText:hover {
+    background-image: url(check-mark-31.46e6e99e.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    border: 1px solid rgba(192, 177, 177, 0.486);
+
+}
+.delItem {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 350px;
+    margin-top: -60px;
+}
+.delAll {
+    color: #4D4D4D;
+    cursor: pointer;
+    position: relative;
+    right: -600px;
+    transition: .3s;
+}
+
+.delAll:hover {
+    text-decoration: underline;
+    transition: .3s;
+}
+.totalElem {
+    color: #4D4D4D;
+    position: relative;
+    top: 35px;
+    left: 190px;
+}
+
+.main_input::-webkit-input-placeholder { 
+    color: rgba(179, 180, 178, 0.651);
+    font-size: 22px;
+}
